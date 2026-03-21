@@ -1,0 +1,32 @@
+! Title: AI & Crypto Fresh Focus – Recency + Anti-Noise
+! Description: Boosts very recent results for AI, ML, LLMs, tools, crypto AI (chatbots, agents, trading copilots). Demotes clickbait listicles, old hype, generic promo sites, and low-signal noise. Lets relevant repos, dev blogs, forums, new projects surface naturally.
+! Author: Community-inspired (fork & improve!)
+! Homepage: https://github.com/yourusername/ai-crypto-goggle
+! Type: reranker
+
+# Core: Heavy emphasis on freshness (AI/crypto both move FAST – prioritize last week/month)
+$boost rank=350 freshness=7d
+$boost rank=250 freshness=30d
+$boost rank=150 freshness=90d     # Still helps for quarterly releases/papers
+
+# General anti-noise demotes (Medium/Substack spam, generic finance lists, old patterns)
+$demote rank=-100 host=medium.com
+$demote rank=-110 host=*.substack.com
+$demote rank=-100 host=forbes.com
+$demote rank=-100 host=businessinsider.com
+$demote rank=-100 host=investopedia.com
+$demote rank=-120 host=*.blogspot.com
+$demote rank=-120 host=*.wordpress.com/?p=
+$demote rank=-90 host=quora.com
+$demote rank=-80 host=*.linkedin.com/pulse
+
+# Crypto-specific anti-hype/clickbait (listicles, promo news, older cycles)
+$demote rank=-120 path=*/top-*/*crypto* OR path=*/best-*/*ai* OR path=*/10-*/*crypto* OR path=*/best-*/*bot*
+$demote rank=-150 path=*/202[3-4]*           # Kills a lot of outdated 2023-2024 "AI crypto boom" spam
+$demote rank=-100 host=cointelegraph.com
+$demote rank=-100 host=bitcoinist.com
+$demote rank=-100 host=news.bitcoin.com
+$demote rank=-100 host=cryptonews.com
+
+# Optional stronger discards for ultra-clean results (uncomment if junk persists)
+# $discard host=*.buzzfeed.com OR host=*.news/*crypto* OR path=*/ai-crypto-*/202*
