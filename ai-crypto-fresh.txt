@@ -1,7 +1,7 @@
 ! Title: AI & Crypto Fresh Focus – Recency + Anti-Noise
 ! Description: Boosts very recent results for AI, ML, LLMs, tools, crypto AI (chatbots, agents, trading copilots). Demotes clickbait listicles, old hype, generic promo sites, and low-signal noise. Lets relevant repos, dev blogs, forums, new projects surface naturally.
 ! Author: HardwareHater
-! Homepage: https://github.com/HardwareHater/Goggles-Collection/blob/main/ai-crypto-fresh.goggle
+! Homepage: https://github.com/HardwareHater/Goggles-Collection/blob/main/ai-crypto-fresh.txt
 ! Type: reranker
 
 # Core: Heavy emphasis on freshness (AI/crypto both move FAST – prioritize last week/month)
