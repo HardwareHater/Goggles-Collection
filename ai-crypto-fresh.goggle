@@ -10,7 +10,7 @@ $boost=4,site=arxiv.org
 $boost=3,site=dev.to
 $boost=3,site=huggingface.co
 
-# Per‑subreddit boosts (path‑based, not broken site values)
+# Per-subreddit boosts
 $boost=3,path=/r/MachineLearning
 $boost=3,path=/r/LocalLLaMA
 $boost=3,path=/r/singularity
@@ -25,8 +25,10 @@ $downrank=3,host=*.blogspot.com
 $downrank=3,host=quora.com
 $downrank=2,host=*.linkedin.com/pulse
 
-# Crypto/AI anti‑hype
-$downrank=4,path=/top-*/crypto* OR path=/best-*/ai* OR path=/10-*/crypto*
+# Crypto/AI anti-hype
+$downrank=4,path=/top-*/crypto*
+$downrank=4,path=/best-*/ai*
+$downrank=4,path=/10-*/crypto*
 $downrank=4,host=cointelegraph.com
 $downrank=4,host=bitcoinist.com
 $downrank=3,host=news.bitcoin.com
