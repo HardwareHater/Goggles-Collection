@@ -7,7 +7,9 @@
 # Boost recent content (general freshness emphasis via targeted boosts where possible)
 $boost=5,site=github.com
 $boost=4,site=arxiv.org
-$boost=3,site=reddit.com/r/MachineLearning OR site=reddit.com/r/LocalLLaMA OR site=reddit.com/r/singularity
+$boost=3,site=reddit.com/r/MachineLearning
+$boost=3,site=reddit.com/r/LocalLLaMA
+$boost=3,site=reddit.com/r/singularity
 $boost=3,site=dev.to
 $boost=3,site=huggingface.co
 
