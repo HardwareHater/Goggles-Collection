@@ -1,36 +1,32 @@
 ! name: AI & Crypto Fresh Focus
-! description: Boosts very recent results for AI, ML, LLMs, tools, crypto AI (chatbots, agents, trading copilots). Demotes clickbait listicles, old hype, generic promo sites, and low-signal noise. Lets relevant repos, dev blogs, forums, new projects surface naturally.
-  
+! description: Boosts very recent results for AI, ML, LLMs, tools, crypto AI (chatbots, agents, trading copilots). Demotes clickbait listicles, old hype, generic promo sites, and low-signal noise.
 ! public: true
 ! author: HardwareHater
+! homepage: https://github.com/HardwareHater/Goggles-Collection
 
-! Homepage: https://github.com/HardwareHater/Goggles-Collection
+# Boost recent content (general freshness emphasis via targeted boosts where possible)
+$boost=5,site=github.com
+$boost=4,site=arxiv.org
+$boost=3,site=reddit.com/r/MachineLearning OR site=reddit.com/r/LocalLLaMA OR site=reddit.com/r/singularity
+$boost=3,site=dev.to
+$boost=3,site=huggingface.co
 
-! Type: reranker
+# General anti-noise downranks
+$downrank=3,host=medium.com
+$downrank=3,host=*.substack.com
+$downrank=2,host=forbes.com
+$downrank=2,host=businessinsider.com
+$downrank=2,host=investopedia.com
+$downrank=3,host=*.blogspot.com
+$downrank=3,host=quora.com
+$downrank=2,host=*.linkedin.com/pulse
 
-# Core: Heavy emphasis on freshness (AI/crypto both move FAST – prioritize last week/month)
-$boost rank=350 freshness=7d
-$boost rank=250 freshness=30d
-$boost rank=150 freshness=90d     # Still helps for quarterly releases/papers
+# Crypto/AI anti-hype
+$downrank=4,path=/top-*/crypto* OR path=/best-*/ai* OR path=/10-*/crypto*
+$downrank=4,host=cointelegraph.com
+$downrank=4,host=bitcoinist.com
+$downrank=3,host=news.bitcoin.com
+$downrank=3,host=cryptonews.com
 
-# General anti-noise demotes (Medium/Substack spam, generic finance lists, old patterns)
-$demote rank=-100 host=medium.com
-$demote rank=-110 host=*.substack.com
-$demote rank=-100 host=forbes.com
-$demote rank=-100 host=businessinsider.com
-$demote rank=-100 host=investopedia.com
-$demote rank=-120 host=*.blogspot.com
-$demote rank=-120 host=*.wordpress.com/?p=
-$demote rank=-90 host=quora.com
-$demote rank=-80 host=*.linkedin.com/pulse
-
-# Crypto-specific anti-hype/clickbait (listicles, promo news, older cycles)
-$demote rank=-120 path=*/top-*/*crypto* OR path=*/best-*/*ai* OR path=*/10-*/*crypto* OR path=*/best-*/*bot*
-$demote rank=-150 path=*/202[3-4]*           # Kills a lot of outdated 2023-2024 "AI crypto boom" spam
-$demote rank=-100 host=cointelegraph.com
-$demote rank=-100 host=bitcoinist.com
-$demote rank=-100 host=news.bitcoin.com
-$demote rank=-100 host=cryptonews.com
-
-# Optional stronger discards for ultra-clean results (uncomment if junk persists)
-# $discard host=*.buzzfeed.com OR host=*.news/*crypto* OR path=*/ai-crypto-*/202*
+# Stronger optional discards (uncomment carefully)
+# $discard,host=*.buzzfeed.com
